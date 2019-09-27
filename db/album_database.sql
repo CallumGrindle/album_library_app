@@ -10,5 +10,6 @@ CREATE TABLE albums (
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
   release_date VARCHAR(255),
-  artist_id INT4 REFERENCES artists(id)
+  artist_id INT4 REFERENCES artists(id),
+  album_art VARCHAR(255)
 );
