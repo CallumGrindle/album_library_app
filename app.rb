@@ -6,3 +6,5 @@ RSpotify.authenticate(@user_key, @secret_key)
 require 'pry'
 
 # binding.pry
+Album.delete_all
+Artist.delete_all
