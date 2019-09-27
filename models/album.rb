@@ -28,6 +28,14 @@ class Album
     return result.map { |album_hash| Album.new(album_hash) }
   end
 
+  def self.find(id)
+    sql = 'SELECT * FROM albums WHERE albums.id = $1'
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    hash = result[0]
+    return Album.new(hash)
+  end
   # binding.pry
+
 
 end
