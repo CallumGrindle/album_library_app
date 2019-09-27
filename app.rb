@@ -5,4 +5,4 @@ require 'rspotify'
 RSpotify.authenticate(@user_key, @secret_key)
 require 'pry'
 
-binding.pry
+# binding.pry

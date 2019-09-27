@@ -35,7 +35,17 @@ class Album
     hash = result[0]
     return Album.new(hash)
   end
+
+  def update
+    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, album_art = $4 WHERE id = $5'
+    values = [@title, @release_date, @artist_id, @album_art, @id]
+    SqlRunner.run(sql, values)
+  end
+
+
+
+
+
+
   # binding.pry
-
-
 end
