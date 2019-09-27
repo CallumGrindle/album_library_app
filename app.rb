@@ -15,9 +15,8 @@ nevermind_object = albums[0]
 
 nirvana_details = {'name' => nevermind_object.artists.first.name}
 nirvana = Artist.new(nirvana_details)
-# nirvana.save
-nevermind_details = {'title' => nevermind_object.name, 'release_date' => nevermind_object.release_date}
+nirvana.save
+# binding.pry
+nevermind_details = {'title' => nevermind_object.name, 'release_date' => nevermind_object.release_date, 'artist_id' => nirvana.id}
 nevermind = Album.new(nevermind_details)
-# nevermind.save
-
-binding.pry
+nevermind.save

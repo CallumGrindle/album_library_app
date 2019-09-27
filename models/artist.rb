@@ -1,3 +1,4 @@
+require_relative('../db/sql_runner')
 require 'pry'
 
 class Artist
@@ -11,6 +12,12 @@ class Artist
   end
 
 
-end
+  def save
+    sql = 'INSERT INTO artists (name)
+          values ($1) RETURNING id'
+    values = [@name]
+    result = SqlRunner.run(sql, values)
+    @id = result[0]['id'].to_i
+  end
 
-# binding.pry
+end
