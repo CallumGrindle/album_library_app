@@ -33,6 +33,24 @@ class Artist
     return Artist.new(hash)
   end
 
+  def self.find(name)
+    sql = 'SELECT * FROM artists WHERE artists.name = $1'
+    values = [name]
+    result = SqlRunner.run(sql, values)
+    if result.count >=1
+      hash = result[0]
+      return Artist.new(hash)
+    end
+    return nil
+  end
+
+  def self.artist_exists?(name)
+    if Artist.find(name) != nil
+      return true
+    end
+    return false
+  end
+
   def update
     sql = 'UPDATE artists SET name = $1 WHERE id = $2'
     values = [@name, @id]

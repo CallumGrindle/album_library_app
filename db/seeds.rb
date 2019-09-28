@@ -12,12 +12,21 @@ def album_search(album_title)
   album_search = RSpotify::Album.search(album_title)
   album_spotify_object = album_search[0]
   artist_details = {'name' => album_spotify_object.artists.first.name}
-  artist = Artist.new(artist_details)
-  artist.save
+  if Artist.artist_exists?(artist_details['name']) == false
+    artist = Artist.new(artist_details)
+    artist.save
+  elsif Artist.artist_exists?(artist_details['name']) == true
+    artist = Artist.find(artist_details['name'])
+  end
   album_details = {'title' => album_spotify_object.name, 'release_date' => album_spotify_object.release_date, 'artist_id' => artist.id, 'album_art' => album_spotify_object.images[0]['url']}
   album = Album.new(album_details)
   album.save
 end
+
+
+
+# binding.pry
+#
 album_search("You Won't Get What You Want")
 album_search("Pleasure Suck")
 album_search("Current Events")
@@ -25,3 +34,6 @@ album_search("Charli")
 album_search("Negative Hope Records Launch Sampler")
 album_search("Nunia")
 album_search("Static Age")
+album_search("Hypnic Jerks")
+album_search("Ruinism")
+album_search("Lustmore")
