@@ -1,3 +1,24 @@
-/* 
+/*
 #fcf9f4 = Floral White. #ffe47a = Yellow.
 */
+
+body {
+  background-color: #ffe47a
+
+}
+
+h1 {
+  justify-content: center;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+
+}
+
+h2 {
+  font-family: 'Varela Round', sans-serif;
+}
+
+artwork {
+  height: 50%;
+  width: 50%
+}

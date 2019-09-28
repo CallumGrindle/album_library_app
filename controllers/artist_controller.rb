@@ -9,3 +9,8 @@ get '/artists' do
   @artists = Artist.all().sort_by { |album| album.name }
   erb ( :"artists/index" )
 end
+
+get '/artists:id/show' do
+  @artist = Artist.find(params['id'].to_i)
+  erb ( :"artists/show")
+end

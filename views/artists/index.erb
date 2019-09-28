@@ -1,7 +1,7 @@
-<h1>Your Artists</h1>
+<h2>Your Artists</h2>
 
 <ul>
   <% for artist in @artists %>
-  <li> <%= artist.name %> </li>
+  <li> <a href="/artists/show"><%= artist.name %> </a></li>
   <% end %>
 </ul>

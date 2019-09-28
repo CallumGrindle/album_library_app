@@ -1,7 +1,7 @@
-<h1>Your Albums</h1>
+<h2>Your Albums</h2>
 
 <ul>
   <% for album in @albums %>
-  <li> <a href="/albums/<%=album.id%>/show"><%= album.title %></a>  </li>
+  <li> <a href="/albums/<%=album.id%>/show" class="artwork"><%= album.title %></a>  </li>
   <% end %>
 </ul>
