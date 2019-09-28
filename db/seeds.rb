@@ -24,9 +24,6 @@ def album_search(album_title)
 end
 
 
-
-# binding.pry
-#
 album_search("You Won't Get What You Want")
 album_search("Pleasure Suck")
 album_search("Current Events")

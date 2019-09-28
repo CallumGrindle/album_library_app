@@ -1,0 +1,11 @@
+require( 'sinatra' )
+require( 'sinatra/contrib/all' )
+require_relative( '../models/album.rb' )
+also_reload( '../models/*' )
+
+
+
+get '/albums' do
+  @albums = Album.all()
+  erb ( :"albums/index" )
+end
