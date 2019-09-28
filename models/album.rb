@@ -3,7 +3,7 @@ require 'pry'
 
 class Album
 
-  attr_accessor :title, :release_date
+  attr_accessor :title, :release_date, :art
   attr_reader :artist_id
 
   def initialize(details)
@@ -11,13 +11,13 @@ class Album
     @title = details['title']
     @release_date = details['release_date']
     @artist_id = details['artist_id']
-    @album_art = details['album_art']
+    @art = details['art']
   end
 
   def save
-    sql = 'INSERT INTO albums (title, release_date, artist_id, album_art)
+    sql = 'INSERT INTO albums (title, release_date, artist_id, art)
           VALUES ($1, $2, $3, $4) RETURNING id'
-    values = [@title, @release_date, @artist_id, @album_art]
+    values = [@title, @release_date, @artist_id, @art]
     result = SqlRunner.run(sql, values)
     @id = result[0]['id'].to_i
   end
@@ -41,8 +41,8 @@ class Album
   end
 
   def update
-    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, album_art = $4 WHERE id = $5'
-    values = [@title, @release_date, @artist_id, @album_art, @id]
+    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 WHERE id = $5'
+    values = [@title, @release_date, @artist_id, @art, @id]
     SqlRunner.run(sql, values)
   end
 

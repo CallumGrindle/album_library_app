@@ -6,6 +6,11 @@ also_reload( '../models/*' )
 
 
 get '/albums' do
-  @albums = Album.all()
+  @albums = Album.all().sort_by { |album| album.title }
   erb ( :"albums/index" )
+end
+
+get '/albums/:id/show' do
+  @album = Album.find(params['id'].to_i)
+  erb ( :"albums/show" )
 end

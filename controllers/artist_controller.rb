@@ -6,6 +6,6 @@ also_reload( '../models/*' )
 
 
 get '/artists' do
-  @artists = Artist.all()
+  @artists = Artist.all().sort_by { |album| album.name }
   erb ( :"artists/index" )
 end

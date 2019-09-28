@@ -18,12 +18,12 @@ def album_search(album_title)
   elsif Artist.artist_exists?(artist_details['name']) == true
     artist = Artist.find(artist_details['name'])
   end
-  album_details = {'title' => album_spotify_object.name, 'release_date' => album_spotify_object.release_date, 'artist_id' => artist.id, 'album_art' => album_spotify_object.images[0]['url']}
+  album_details = {'title' => album_spotify_object.name, 'release_date' => album_spotify_object.release_date, 'artist_id' => artist.id, 'art' => album_spotify_object.images[0]['url']}
   album = Album.new(album_details)
   album.save
 end
 
-binding.pry
+# binding.pry
 album_search("You Won't Get What You Want")
 album_search("Pleasure Suck")
 album_search("Current Events")
