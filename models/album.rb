@@ -22,14 +22,10 @@ class Album
     @id = result[0]['id'].to_i
   end
 
-  # def id
-  #   return @id
-  # end
-
   def artist
     sql = 'SELECT name, artists.id FROM artists
           INNER JOIN albums ON albums.artist_id = artists.id
-          WHERE artists.id = $1'
+          WHERE albums.id = $1'
     values = [@id]
     result = SqlRunner.run(sql, values)
     return Artist.new(result[0])
