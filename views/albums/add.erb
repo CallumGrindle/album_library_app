@@ -1,9 +1,14 @@
 <h2>Add a new album</h2>
 
-<form class="" action="index.html" method="post">
+<form class="" action="/albums/add" method="get">
 
   <input type="text" name="album_search" value="">
   <input type="submit" name="" value="Go!">
 
-
 </form>
+
+<% if params[:album_search] %>
+
+  <% album_search("#{params[:album_search]}") %>
+
+<% end %>

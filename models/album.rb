@@ -4,7 +4,7 @@ require 'pry'
 class Album
 
   attr_accessor :title, :release_date, :art
-  attr_reader :artist_id
+  attr_reader :artist_id, :id
 
   def initialize(details)
     @id = details['id'] if details['id']
@@ -22,9 +22,9 @@ class Album
     @id = result[0]['id'].to_i
   end
 
-  def id
-    return @id
-  end
+  # def id
+  #   return @id
+  # end
 
   def artist
     sql = 'SELECT name, artists.id FROM artists

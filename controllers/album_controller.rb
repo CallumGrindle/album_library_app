@@ -2,11 +2,8 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/album.rb' )
 require_relative( '../models/artist.rb' )
+require_relative( '../models/search.rb' )
 also_reload( '../models/*' )
-require_relative('../secret/spotify_keys')
-require 'rspotify'
-RSpotify.authenticate(@user_key, @secret_key)
-
 
 
 
@@ -26,4 +23,8 @@ end
 
 get '/albums/add' do
   erb (:"albums/add")
+end
+
+post '/albums/add' do
+
 end

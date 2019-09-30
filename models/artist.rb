@@ -20,7 +20,7 @@ class Artist
   end
 
   def albums
-    sql = 'SELECT * FROM albums
+    sql = 'SELECT albums.* FROM albums
         INNER JOIN artists ON artists.id = albums.artist_id
         WHERE artists.id = $1'
     values = [@id]
@@ -38,7 +38,7 @@ class Artist
     sql = 'SELECT * FROM artists WHERE artists.id = $1'
     values = [id]
     result = SqlRunner.run(sql, values)
-    binding.pry
+    # binding.pry
     hash = result[0]
     return Artist.new(hash)
   end

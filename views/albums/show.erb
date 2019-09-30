@@ -1,7 +1,8 @@
+<h2><%=@album.title%></h2>
+
 <img src="<%= @album.art %>" alt="Album Art">
 
 <ul>
-  <li><%= @album.title %></li>
+  <li><%= @album.artist.name %></li>
   <li><%= @album.release_date %></li>
-  <li><%= @album.artist %></li>
 </ul>
