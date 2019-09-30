@@ -45,6 +45,14 @@ class Album
     return Album.new(hash)
   end
 
+  def self.find(title)
+    sql = 'SELECT * FROM albums WHERE albums.title = $1'
+    values = [title]
+    result = SqlRunner.run(sql, values)
+    hash = result[0]
+    return Album.new(hash)
+  end
+
   def update
     sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 WHERE id = $5'
     values = [@title, @release_date, @artist_id, @art, @id]
@@ -69,5 +77,4 @@ class Album
   end
 
 
-  # binding.pry
 end

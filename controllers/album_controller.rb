@@ -4,7 +4,7 @@ require_relative( '../models/album.rb' )
 require_relative( '../models/artist.rb' )
 require_relative( '../helpers/search.rb' )
 also_reload( '../models/*' )
-
+require 'pry'
 
 get '/albums' do
   @albums = Album.all().sort_by { |album| album.title }
@@ -24,8 +24,15 @@ get '/albums/add' do
   erb (:"albums/add")
 end
 
-get 'albums/:name/:counter/save' do
-  save_album(params[:name], params[:no].to_i)
+get '/albums/:name/:counter/save' do
+  id = save_album(params['name'], params['no'].to_i)
+  redirect "/albums/#{id}/show"
+end
+
+get '/albums/find' do
+  @album = Album.find(params['find_album'])
+  id = @album.id
+  redirect "/albums/#{id}/show"
 end
 
 get '/albums/:id/delete' do
