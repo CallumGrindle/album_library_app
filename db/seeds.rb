@@ -1,7 +1,7 @@
 require_relative('../helpers/search')
 require 'pry'
 
-# binding.pry
+binding.pry
 album_search("You Won't Get What You Want")
 album_search("Pleasure Suck")
 album_search("Current Events")

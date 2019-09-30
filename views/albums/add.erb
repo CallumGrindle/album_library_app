@@ -1,10 +1,19 @@
 <h2>Add a new album</h2>
 
 <form class="" action="/albums/add" method="get">
-  <input type="text" name="album_search" value="">
+
+  <input type="text" name="search_album" value="">
   <input type="submit" name="" value="Go!">
+
 </form>
 
-<% if params[:album_search] %>
-  <% album_search("#{params[:album_search]}") %>
+<% if params[:search_album] %>
+<% counter = 0 %>
+<% for album in search_album("#{params[:search_album]}") %>
+  <ul>
+  <li><%= album.name %> by <%= album.artists[0].name %></li>
+  <% counter += 1 %>
+  <% break if counter > 3 %>
+  <% end %>
+  </ul>
 <% end %>

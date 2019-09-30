@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/album.rb' )
 require_relative( '../models/artist.rb' )
+require_relative( '../helpers/search.rb' )
 also_reload( '../models/*' )
 
 
@@ -23,7 +24,12 @@ get '/albums/add' do
   erb (:"albums/add")
 end
 
+get 'albums/save/:name/:no' do
+  
+end
+
 get '/albums/:id/delete' do
-  erb(:"albums/delete")
-  @album = Album.find_by_id(params['id'].to_i)
+  album = Album.find_by_id(params['id'].to_i)
+  album.delete
+  redirect '/albums'
 end
