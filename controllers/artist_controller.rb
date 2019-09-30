@@ -14,3 +14,9 @@ get '/artists/:id/show' do
   @artist = Artist.find_by_id( params['id'].to_i )
   erb ( :"artists/show")
 end
+
+get '/artists/:id/delete' do
+  artist = Artist.find_by_id(params['id'].to_i)
+  artist.delete
+  redirect '/artists'
+end

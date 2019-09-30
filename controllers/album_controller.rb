@@ -25,7 +25,7 @@ get '/albums/add' do
 end
 
 get '/albums/:name/:counter/save' do
-  id = save_album(params['name'], params['no'].to_i)
+  id = save_album(params['name'], params['counter'].to_i)
   redirect "/albums/#{id}/show"
 end
 
