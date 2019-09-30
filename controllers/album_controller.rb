@@ -5,7 +5,6 @@ require_relative( '../models/artist.rb' )
 also_reload( '../models/*' )
 
 
-
 get '/albums' do
   @albums = Album.all().sort_by { |album| album.title }
   erb ( :"albums/index" )
@@ -24,6 +23,7 @@ get '/albums/add' do
   erb (:"albums/add")
 end
 
-post '/albums/add' do
-
+get '/albums/:id/delete' do
+  erb(:"albums/delete")
+  @album = Album.find_by_id(params['id'].to_i)
 end
