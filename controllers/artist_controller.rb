@@ -10,7 +10,7 @@ get '/artists' do
   erb ( :"artists/index" )
 end
 
-get '/artists:id/show' do
-  @artist = Artist.find(params['id'].to_i)
+get '/artists/:id/show' do
+  @artist = Artist.find_by_id( params['id'].to_i )
   erb ( :"artists/show")
 end

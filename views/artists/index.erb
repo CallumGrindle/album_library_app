@@ -2,6 +2,6 @@
 
 <ul>
   <% for artist in @artists %>
-  <li> <a href="/artists/show"><%= artist.name %> </a></li>
+  <li><a href="/artists/<%=artist.id%>/show"><%= artist.name %> </a></li>
   <% end %>
 </ul>

@@ -26,13 +26,22 @@ class Album
     return @id
   end
 
+  def artist
+    sql = 'SELECT name, artists.id FROM artists
+          INNER JOIN albums ON albums.artist_id = artists.id
+          WHERE artists.id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return Artist.new(result[0])
+  end
+
   def self.all
     sql = 'SELECT * FROM albums'
     result = SqlRunner.run(sql)
     return result.map { |album_hash| Album.new(album_hash) }
   end
 
-  def self.find(id)
+  def self.find_by_id(id)
     sql = 'SELECT * FROM albums WHERE albums.id = $1'
     values = [id]
     result = SqlRunner.run(sql, values)

@@ -19,16 +19,26 @@ class Artist
     @id = result[0]['id'].to_i
   end
 
+  def albums
+    sql = 'SELECT * FROM albums
+        INNER JOIN artists ON artists.id = albums.artist_id
+        WHERE artists.id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |album| Album.new(album) }
+  end
+
   def self.all
     sql = 'SELECT * FROM artists'
     result = SqlRunner.run(sql)
     return result.map { |artist_hash| Artist.new(artist_hash) }
   end
 
-  def self.find(id)
+  def self.find_by_id(id)
     sql = 'SELECT * FROM artists WHERE artists.id = $1'
     values = [id]
     result = SqlRunner.run(sql, values)
+    binding.pry
     hash = result[0]
     return Artist.new(hash)
   end

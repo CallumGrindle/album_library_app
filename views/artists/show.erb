@@ -1,0 +1,5 @@
+<ul>
+  <% for album in @artist.albums %>
+  <li><a href="/albums/<%=album.id%>/show"><%=album.title%></a></li>
+  <% end %>
+</ul> 
