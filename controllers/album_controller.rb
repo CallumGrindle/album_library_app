@@ -24,8 +24,8 @@ get '/albums/add' do
   erb (:"albums/add")
 end
 
-get 'albums/save/:name/:no' do
-  
+get 'albums/:name/:counter/save' do
+  save_album(params[:name], params[:no].to_i)
 end
 
 get '/albums/:id/delete' do

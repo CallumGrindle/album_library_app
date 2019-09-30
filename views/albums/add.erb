@@ -8,10 +8,11 @@
 </form>
 
 <% if params[:search_album] %>
+<h3>Did you mean:</h3>
 <% counter = 0 %>
 <% for album in search_album("#{params[:search_album]}") %>
   <ul>
-  <li><%= album.name %> by <%= album.artists[0].name %></li>
+  <li><a href="/albums/<%=album.name%>/<%=counter%>/save"><%= album.name %> by <%= album.artists[0].name %></a></li>
   <% counter += 1 %>
   <% break if counter > 3 %>
   <% end %>
