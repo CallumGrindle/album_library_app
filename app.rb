@@ -1,5 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
+require( 'sinatra/reloader' )
 require 'rspotify'
 require_relative('./secret/spotify_keys')
 require_relative('./helpers/search')

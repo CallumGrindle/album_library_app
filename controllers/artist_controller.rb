@@ -17,6 +17,8 @@ end
 
 get '/artists/:id/delete' do
   artist = Artist.find_by_id(params['id'].to_i)
+  albums = artist.albums
+  albums.each { |album| album.delete }
   artist.delete
   redirect '/artists'
 end

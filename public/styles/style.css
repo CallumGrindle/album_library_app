@@ -3,7 +3,7 @@
 */
 
 body {
-  background-color: #ffe47a
+  background-color: #ffe87a
 
 }
 
@@ -11,6 +11,7 @@ h1 {
   justify-content: center;
   font-family: 'Varela Round', sans-serif;
   font-weight: bold;
+  color: #fffefc
 
 }
 
@@ -19,6 +20,11 @@ h2 {
 }
 
 artwork {
+  justify-content: center;
   height: 50%;
   width: 50%
+}
+
+nav_bar {
+  font-family: 'Varela Round', sans-serif;
 }
