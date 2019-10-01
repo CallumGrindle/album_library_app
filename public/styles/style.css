@@ -34,6 +34,11 @@ ul {
   font-family: 'Varela Round', sans-serif;
 }
 
+.main_nav {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .nav_bar {
   list-style-type: none;
   flex-direction: row;
@@ -46,6 +51,10 @@ ul {
 
 :content {
   justify-content: center;
+}
+
+.fab fa-spotify {
+  height: 20px;
 }
 
 a {

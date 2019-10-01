@@ -2,16 +2,22 @@
   <input type="hidden" name="_method" value="put">
 
   <label for="album_name">Title</label>
-    <input type="text" name="album_name" value="<%=@album.title%>">
+    <input type="text" name="title" value="<%=@album.title%>">
 
   <label for="album_artist">Artist</label>
-    <input type="text" name="album_artist" value="<%=@album.artist.name%>">
+    <select class="" name="artist_id">
+      <% for album in @albums %>
+        <option value="<%= album.artist.id %>" <%= "selected" if album.artist.name == @album.artist.name %>><%=album.artist.name%></option>
+      <% end %>
+    </select>
 
-  <label for="release_date">Artist</label>
+
+
+  <label for="release_date">release_date</label>
     <input type="text" name="release_date" value="<%=@album.release_date%>">
 
   <label for="artwork">Artwork</label>
-    <input type="text" name="artwork" value="<%= @album.art %>">
+    <input type="text" name="art" value="<%= @album.art %>">
 
   <input type="submit" name="submit" value="Edit">
 

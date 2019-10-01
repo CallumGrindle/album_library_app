@@ -47,11 +47,12 @@ end
 
 get '/albums/:id/edit' do
   @album = Album.find_by_id(params['id'].to_i)
+  @albums = Album.all
   erb (:'albums/edit')
 end
 
-put '/album/:id' do
-  album = Album.new(params['id']).update
+put '/albums/:id' do
+  album = Album.new(params).update
   redirect'/albums'
 end
 
