@@ -40,3 +40,8 @@ get '/albums/:id/delete' do
   album.delete
   redirect '/albums'
 end
+
+get '/albums/:id/edit' do
+  @album = Album.find_by_id(params['id'].to_i)
+  erb (:'albums/edit')
+end
