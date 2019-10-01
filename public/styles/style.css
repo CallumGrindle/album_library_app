@@ -35,3 +35,12 @@ nav_bar {
 a:hover {
   color: 333
 };
+
+form.album_options_form {
+  justify: center
+
+}
+
+.artist_details {
+  justify-content: flex-end;
+}
