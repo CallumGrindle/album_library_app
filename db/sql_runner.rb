@@ -1,7 +1,6 @@
 require( 'pg' )
 
 class SqlRunner
-
   def self.run( sql, values = [] )
     begin
       db = PG.connect({ dbname: 'album_database_app', host: 'localhost' })
@@ -12,5 +11,4 @@ class SqlRunner
     end
     return result
   end
-
 end

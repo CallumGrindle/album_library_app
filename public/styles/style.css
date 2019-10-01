@@ -34,11 +34,19 @@ ul {
   font-family: 'Varela Round', sans-serif;
 }
 
+.nav_bar {
+  list-style-type: none;
+  flex-direction: row;
+}
+
 .artist_details {
   justify-content: flex-end;
   color: #F2F1EF
 }
 
+:content {
+  justify-content: center;
+}
 
 a {
   font-family: 'Varela Round', sans-serif;

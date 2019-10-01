@@ -53,7 +53,6 @@ class Album
     result = SqlRunner.run(sql, values)
     hash = result[0]
     return Album.new(hash)
-
   end
 
   def update
@@ -78,6 +77,5 @@ class Album
     values = [id]
     SqlRunner.run(sql, values)
   end
-
 
 end
