@@ -7,6 +7,7 @@ body{
   height: 100%;
   width: 100%;
   background-size: 100%;
+  
 }
 
 h1{
@@ -58,14 +59,4 @@ a:hover {
   transition-property: all;
   transition-duration: 0.5;
   right: 1px;
-}
-
-.index:active{
-  transform:
-}
-
-.artwork_display: {
-  transition-property: all;
-  transition-duration: 1s
-  width: 0%
 }
