@@ -22,3 +22,8 @@ get '/artists/:id/delete' do
   artist.delete
   redirect '/artists'
 end
+
+get '/artists/clean' do
+  Artist.all.each { |artist| artist.delete if artist.albums.count == 0 }
+  redirect '/artists'
+end
