@@ -2,6 +2,6 @@
 
 <ul>
   <% for album in @albums %>
-  <li> <a href="/albums/<%=album.id%>/show" class="artwork"><%= album.title %></a>  </li>
+  <li class="index"> <a href="/albums/<%=album.id%>/show" class="artwork"><%= album.title %></a>  </li>
   <% end %>
 </ul>

@@ -1,8 +1,8 @@
 <h2>Your Artists</h2>
 
-<ul class="index">
+<ul>
   <% for artist in @artists %>
-  <li><a href="/artists/<%=artist.id%>/show"><%= artist.name %></a></li>
+  <li class="index"><a href="/artists/<%=artist.id%>/show"><%= artist.name %></a></li>
   <% end %>
 </ul>
 

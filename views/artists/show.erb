@@ -1,7 +1,7 @@
 <ul>
   <% for album in @artist.albums.sort_by { |album| album.title } %>
-  <li><a href="/albums/<%=album.id%>/show"><%=album.title%></a></li>
+  <li class="index" ><a href="/albums/<%=album.id%>/show"><%=album.title%></a></li>
   <% end %>
 </ul>
 
-<a href="/artists/<%=@artist.id%>/delete"><i class="fas fa-trash"></i></a>
+<a id='delete' href="/artists/<%=@artist.id%>/delete"><i class="fas fa-trash"></i></a>
