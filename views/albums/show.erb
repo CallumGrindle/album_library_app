@@ -1,5 +1,5 @@
 <h2><%=@album.title%></h2>
-<h3><%=@album.artist.name%></h3>
+<h3><a href="/artists/<%=@album.artist.id%>/show"><%=@album.artist.name%></a></h3>
 
 <img height="400px" src="<%= @album.art %>" alt="Album Art">
 <a href="/albums/<%= @album.id %>/edit"><i class="fas fa-pencil-alt"></i></a>
