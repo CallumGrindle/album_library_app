@@ -14,6 +14,10 @@ h1 {
 
 }
 
+fas fa-compact-disc {
+  color: #fcf9f4
+}
+
 h2 {
   font-family: 'Varela Round', sans-serif;
 }
@@ -27,3 +31,7 @@ artwork {
 nav_bar {
   font-family: 'Varela Round', sans-serif;
 }
+
+a:hover {
+  color: 333
+};

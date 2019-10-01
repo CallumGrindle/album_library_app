@@ -30,9 +30,13 @@ get '/albums/:name/:counter/save' do
 end
 
 get '/albums/find' do
-  @album = Album.find(params['find_album'])
-  id = @album.id
-  redirect "/albums/#{id}/show"
+  begin
+    @album = Album.find(params['find_album'])
+    id = @album.id
+    redirect "/albums/#{id}/show"
+  rescue
+    redirect "/albums"
+  end
 end
 
 get '/albums/:id/delete' do
@@ -44,4 +48,14 @@ end
 get '/albums/:id/edit' do
   @album = Album.find_by_id(params['id'].to_i)
   erb (:'albums/edit')
+end
+
+put '/album/:id' do
+  album = Album.new(params['id']).update
+  redirect'/albums'
+end
+
+post '/save-album' do
+  id = save_album(params)
+  redirect "/albums/#{id}/show"
 end

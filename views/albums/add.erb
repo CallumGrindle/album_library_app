@@ -12,7 +12,17 @@
 <% counter = 0 %>
 <% for album in search_album("#{params[:search_album]}") %>
   <ul>
-  <li><a href="<% save_album(album) %>"><%= album.name %> by <%= album.artists[0].name %></a></li>
+  <li>
+    <form class="" action="/save-album" method="post">
+      <input type="hidden" name="title" value="<%= album.name %>">
+      <input type="hidden" name="release_date" value="<%= album.release_date %>">
+      <input type="hidden" name="artist_name" value="<%= album.artists.first.name %>">
+      <input type="hidden" name="artwork" value="<%= album.images[0]['url'] %>">
+      <img src="<%= album.images[0]['url']%>" alt="">
+      <input type="submit" name="save_album" value="<%= album.name %> by <%= album.artists[0].name %>">
+    </form>
+  </li>
+
   <% counter += 1 %>
   <% break if counter > 3 %>
   <% end %>
