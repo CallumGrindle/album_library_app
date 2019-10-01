@@ -12,7 +12,7 @@
 <% counter = 0 %>
 <% for album in search_album("#{params[:search_album]}") %>
   <ul>
-  <li><a href="/albums/<%=album.name%>/<%=counter%>/save"><%= album.name %> by <%= album.artists[0].name %></a></li>
+  <li><a href="<% save_album(album) %>"><%= album.name %> by <%= album.artists[0].name %></a></li>
   <% counter += 1 %>
   <% break if counter > 3 %>
   <% end %>

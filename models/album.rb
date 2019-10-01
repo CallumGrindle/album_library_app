@@ -47,9 +47,9 @@ class Album
 
   def self.find(title)
     title = "%#{title}%"
-    sql = "SELECT * FROM albums WHERE albums.title LIKE '#{title}'"
-    # values = [title]
-    result = SqlRunner.run(sql)
+    sql = "SELECT * FROM albums WHERE albums.title LIKE $1"
+    values = [title]
+    result = SqlRunner.run(sql, values)
     hash = result[0]
     return Album.new(hash)
   end
