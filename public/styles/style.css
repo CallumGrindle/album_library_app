@@ -11,14 +11,17 @@ h1 {
   font-family: 'Varela Round', sans-serif;
   font-weight: bold;
   color: #fffefc
-
-}
-
-fas fa-compact-disc {
-  color: #fcf9f4
 }
 
 h2 {
+  font-family: 'Varela Round', sans-serif;
+}
+
+h3 {
+  font-family: 'Varela Round', sans-serif;
+}
+
+p {
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -28,19 +31,18 @@ artwork {
   width: 50%
 }
 
-nav_bar {
+nav {
   font-family: 'Varela Round', sans-serif;
 }
 
-a:hover {
-  color: 333
-};
-
-form.album_options_form {
-  justify: center
-
+ul {
+  font-family: 'Varela Round', sans-serif;
 }
 
 .artist_details {
   justify-content: flex-end;
+}
+
+a: visited {
+color: black
 }

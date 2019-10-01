@@ -1,10 +1,7 @@
 <h2><%=@album.title%></h2>
 <h3><%=@album.artist.name%></h2>
-
-<img class="artwork" height="400px" src="<%= @album.art %>" alt="Album Art">
-
-<p>Released <%= @album.release_date %></p>
-
-
 <a href="/albums/<%= @album.id %>/edit"><i class="fas fa-pencil-alt"></i></a>
 <a href="/albums/<%= @album.id %>/delete"><i class="fas fa-trash"></i></a>
+
+<img height="400px" src="<%= @album.art %>" alt="Album Art">
+<p>Released <%= @album.release_date %></p>
