@@ -83,4 +83,8 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  def self.count
+    return Artist.all.count
+  end
+
 end

@@ -102,4 +102,8 @@ class Album
     rand_id = arr.sample
   end
 
+  def self.count
+    return Album.all.count
+  end
+
 end
