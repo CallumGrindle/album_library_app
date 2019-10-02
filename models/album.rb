@@ -3,7 +3,7 @@ require 'pry'
 
 class Album
 
-  attr_accessor :title, :release_date, :art
+  attr_accessor :title, :release_date, :art, :favourite
   attr_reader :artist_id, :id
 
   def initialize(details)
@@ -12,12 +12,13 @@ class Album
     @release_date = details['release_date']
     @artist_id = details['artist_id']
     @art = details['art']
+    @favourite = details['favourite']
   end
 
   def save
-    sql = 'INSERT INTO albums (title, release_date, artist_id, art)
-          VALUES ($1, $2, $3, $4) RETURNING id'
-    values = [@title, @release_date, @artist_id, @art]
+    sql = 'INSERT INTO albums (title, release_date, artist_id, art, favourite)
+          VALUES ($1, $2, $3, $4, $5) RETURNING id'
+    values = [@title, @release_date, @artist_id, @art, @favourite=false]
     result = SqlRunner.run(sql, values)
     @id = result[0]['id'].to_i
   end
@@ -56,8 +57,8 @@ class Album
   end
 
   def update
-    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 WHERE id = $5'
-    values = [@title, @release_date, @artist_id, @art, @id]
+    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 favourite = $5 WHERE id = $6'
+    values = [@title, @release_date, @artist_id, @art, @favourite, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -75,6 +76,17 @@ class Album
   def self.delete(id)
     sql = 'DELETE FROM albums WHERE id = $1'
     values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def toggle_favourite
+    if @favourite == true
+      @favourite = false
+    else
+      @favourite = true
+    end
+    sql = 'UPDATE albums SET favourite = $1 WHERE id = $2'
+    values = [@favourite, @id]
     SqlRunner.run(sql, values)
   end
 

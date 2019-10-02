@@ -60,3 +60,12 @@ post '/save-album' do
   id = save_album(params)
   redirect "/albums/#{id}/show"
 end
+
+post '/:id/favourite' do
+  @album = Album.find_by_id(params['id'].to_i)
+  @album.toggle_favourite
+end
+
+get '/albums/favourites' do
+  
+end
