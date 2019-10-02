@@ -18,6 +18,12 @@
   <label for="artwork">Artwork</label>
     <input type="text" name="art" value="<%= @album.art %>">
 
+  <label for="favourite"></label>
+    <input type="hidden" name="favourite" value=" <%= @album.favourite %> ">
+
+  <label for="spotify_link"></label>
+    <input type="hidden" name="spotify_link" value="<%= @album.spotify_link %>">
+
   <input type="submit" name="submit" value="Edit">
 
 </form>

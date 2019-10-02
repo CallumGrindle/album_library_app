@@ -58,7 +58,7 @@ class Album
   end
 
   def update
-    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 favourite = $5, spotify_link = $6 WHERE id = $7'
+    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4, favourite = $5, spotify_link = $6 WHERE id = $7'
     values = [@title, @release_date, @artist_id, @art, @favourite, @spotify_link, @id]
     SqlRunner.run(sql, values)
   end
