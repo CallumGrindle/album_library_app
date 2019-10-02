@@ -23,6 +23,12 @@ h2, h3, p, nav, ul{
   font-family: 'Varela Round', sans-serif;
 }
 
+.edit_form {
+  font-family: 'Varela Round', sans-serif;
+  text-decoration: none;
+  align-content: space-between;
+}
+
 .nav_bar{
   list-style-type: none;
   display: flex;
@@ -63,4 +69,8 @@ a:hover {
   transition-property: all;
   transition-duration: 0.5;
   right: 1px;
+}
+
+.album_options_form {
+  list-style-type: none;
 }

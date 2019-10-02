@@ -1,3 +1,5 @@
+<h2><%=@artist.name%></h2>
+
 <ul>
   <% for album in @artist.albums.sort_by { |album| album.title } %>
   <li class="index" ><a href="/albums/<%=album.id%>/show"><%=album.title%></a>
