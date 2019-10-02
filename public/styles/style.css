@@ -4,10 +4,10 @@
 
 body{
   background-image: linear-gradient(#f3d34a, #F2D865);
-  height: 100%;
-  width: 100%;
   background-size: 100%;
-  
+  margin: 50px;
+  padding: 10px
+
 }
 
 h1{
@@ -25,10 +25,18 @@ h2, h3, p, nav, ul{
 
 .nav_bar{
   list-style-type: none;
-  text-align: justify;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
+
+
   border-style: solid;
   border-radius: 7px;
+
+}
+
+.main_nav {
+  margin: 10%
+  padding: 1%
 }
 
 a{
@@ -42,13 +50,6 @@ a:hover {
   text-decoration: none;
 }
 
-#delete {
-  animation-name: delete;
-}
-
-@@keyframes delete {
-
-}
 
 .index {
   list-style-type: none;
