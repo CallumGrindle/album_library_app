@@ -49,8 +49,8 @@ a:hover {
   color: #340 ;
   text-decoration: none;
 }
-.content {
-  position: relative;
+
+.content.artwork_display {
   justify-content: center;
 }
 
