@@ -75,6 +75,13 @@ get '/:id/toggle-favourite/album-show' do
   redirect "/albums/#{id}/show"
 end
 
+get '/:id/toggle-favourite/artist-index' do
+  id = params['id'].to_i
+  @album = Album.find_by_id(id)
+  @album.toggle_favourite
+  redirect "/artists/#{id}/show"
+end
+
 get '/albums/favourites' do
   @albums = Album.all
   erb (:'albums/favourites')

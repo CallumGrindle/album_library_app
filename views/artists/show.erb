@@ -1,6 +1,16 @@
 <ul>
   <% for album in @artist.albums.sort_by { |album| album.title } %>
-  <li class="index" ><a href="/albums/<%=album.id%>/show"><%=album.title%></a></li>
+  <li class="index" ><a href="/albums/<%=album.id%>/show"><%=album.title%></a>
+
+  <a href="/<%=album.id%>/toggle-favourite/artist-index">
+
+    <% if album.favourite? %>
+      <i class="fas fa-star"></i>
+    <% else %>
+      <i class="far fa-star"></i>
+    <% end %>
+
+  </li>
   <% end %>
 </ul>
 
