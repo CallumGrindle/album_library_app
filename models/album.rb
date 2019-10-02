@@ -96,4 +96,10 @@ class Album
     return false if @favourite == 'f'
   end
 
+  def self.random_id
+    albums = Album.all
+    arr = albums.map { |album| album.id }
+    rand_id = arr.sample
+  end
+
 end

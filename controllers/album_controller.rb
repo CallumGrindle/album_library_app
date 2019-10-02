@@ -94,3 +94,8 @@ get '/albums/favourites' do
   @albums = Album.all
   erb (:'albums/favourites')
 end
+
+get '/albums/random' do
+  id = Album.random_id
+  redirect "/albums/#{id}/show"
+end
