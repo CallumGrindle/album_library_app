@@ -12,5 +12,6 @@ CREATE TABLE albums (
   release_date VARCHAR(255),
   artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE,
   art VARCHAR(255),
-  favourite BOOLEAN DEFAULT false NOT NULL
+  favourite BOOLEAN DEFAULT false NOT NULL,
+  spotify_link VARCHAR(255)
 );

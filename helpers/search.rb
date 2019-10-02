@@ -20,7 +20,7 @@ def save_album(params)
   elsif Artist.artist_exists?(artist_details['name']) == true
     artist = Artist.find(artist_details['name'])
   end
-  album_details = {'title' => params['title'], 'release_date' => params['release_date'], 'artist_id' => artist.id, 'art' => params['artwork']}
+  album_details = {'title' => params['title'], 'release_date' => params['release_date'], 'artist_id' => artist.id, 'art' => params['artwork'], 'spotify_link' => params['spotify_link']}
   album = Album.new(album_details)
   album.save
   return album.id

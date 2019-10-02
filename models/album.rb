@@ -3,7 +3,7 @@ require 'pry'
 
 class Album
 
-  attr_accessor :title, :release_date, :art, :favourite
+  attr_accessor :title, :release_date, :art, :favourite, :spotify_link
   attr_reader :artist_id, :id
 
   def initialize(details)
@@ -13,12 +13,13 @@ class Album
     @artist_id = details['artist_id']
     @art = details['art']
     @favourite = details['favourite']
+    @spotify_link = details['spotify_link']
   end
 
   def save
-    sql = 'INSERT INTO albums (title, release_date, artist_id, art, favourite)
-          VALUES ($1, $2, $3, $4, $5) RETURNING id'
-    values = [@title, @release_date, @artist_id, @art, @favourite=false]
+    sql = 'INSERT INTO albums (title, release_date, artist_id, art, favourite, spotify_link)
+          VALUES ($1, $2, $3, $4, $5, $6) RETURNING id'
+    values = [@title, @release_date, @artist_id, @art, @favourite=false, @spotify_link]
     result = SqlRunner.run(sql, values)
     @id = result[0]['id'].to_i
   end
@@ -57,8 +58,8 @@ class Album
   end
 
   def update
-    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 favourite = $5 WHERE id = $6'
-    values = [@title, @release_date, @artist_id, @art, @favourite, @id]
+    sql = 'UPDATE albums SET title = $1, release_date = $2, artist_id = $3, art = $4 favourite = $5, spotify_link = $6 WHERE id = $7'
+    values = [@title, @release_date, @artist_id, @art, @favourite, @spotify_link, @id]
     SqlRunner.run(sql, values)
   end
 
