@@ -38,7 +38,6 @@ class Artist
     sql = 'SELECT * FROM artists WHERE artists.id = $1'
     values = [id]
     result = SqlRunner.run(sql, values)
-    binding.pry
     hash = result[0]
     return Artist.new(hash)
   end
