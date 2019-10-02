@@ -1,1 +1,12 @@
 <h2>Your Favourites</h2>
+
+<ul>
+  <% for album in @albums %>
+    <% if album.favourite? %>
+      <li class="index">
+        <a href='/albums/<%=album.id%>/show'> <%=album.title%> </a>
+      </li>
+    <% end %>
+  <% end %>
+
+</ul>

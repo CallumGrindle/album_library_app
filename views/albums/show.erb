@@ -4,5 +4,13 @@
 <img class="artwork_display" height="400px" src="<%= @album.art %>" alt="Album Art">
 <a href="/albums/<%= @album.id %>/edit"><i class="fas fa-pencil-alt"></i></a>
 <a id= 'delete' href="/albums/<%= @album.id %>/delete"><i class="fas fa-trash"></i></a>
+<a href="/<%=@album.id%>/toggle-favourite/album-show">
+
+  <% if @album.favourite? %>
+    <i class="fas fa-star"></i>
+  <% else %>
+    <i class="far fa-star"></i>
+  <% end %>
+
 
 <p>Released <%= @album.release_date %></p>

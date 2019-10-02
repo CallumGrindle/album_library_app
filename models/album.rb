@@ -80,14 +80,19 @@ class Album
   end
 
   def toggle_favourite
-    if @favourite == true
-      @favourite = false
+    if @favourite == 't'
+      @favourite = 'f'
     else
-      @favourite = true
+      @favourite = 't'
     end
     sql = 'UPDATE albums SET favourite = $1 WHERE id = $2'
     values = [@favourite, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def favourite?
+    return true if @favourite == 't'
+    return false if @favourite == 'f'
   end
 
 end

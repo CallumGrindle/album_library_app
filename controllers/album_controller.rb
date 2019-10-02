@@ -61,11 +61,21 @@ post '/save-album' do
   redirect "/albums/#{id}/show"
 end
 
-post '/:id/favourite' do
-  @album = Album.find_by_id(params['id'].to_i)
+get '/:id/toggle-favourite' do
+  id = params['id'].to_i
+  @album = Album.find_by_id(id)
   @album.toggle_favourite
+  redirect "/albums"
+end
+
+get '/:id/toggle-favourite/album-show' do
+  id = params['id'].to_i
+  @album = Album.find_by_id(id)
+  @album.toggle_favourite
+  redirect "/albums/#{id}/show"
 end
 
 get '/albums/favourites' do
-  
+  @albums = Album.all
+  erb (:'albums/favourites')
 end
