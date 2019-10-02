@@ -13,7 +13,7 @@
     <% else %>
     <i class="far fa-star"></i>
     <% end %>
-    <a href="<%=@album.spotify_link%>" target="_blank"><i class="fab fa-spotify"></i></a>
+    <a href="<%=@album.spotify_link%>" ><i class="fab fa-spotify"></i></a>
   <a href="/albums/<%= @album.id %>/edit"><i class="fas fa-pencil-alt"></i></a>
   <a id= 'delete' href="/albums/<%= @album.id %>/delete"><i class="fas fa-trash"></i></a>
 </div>
