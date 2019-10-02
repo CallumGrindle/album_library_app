@@ -8,7 +8,6 @@ body{
   background-size: 100%;
   margin: 50px;
   padding: 10px
-
 }
 
 h1{
@@ -33,11 +32,8 @@ h2, h3, p, nav, ul{
   list-style-type: none;
   display: flex;
   justify-content: space-around;
-
-
   border-style: solid;
   border-radius: 7px;
-
 }
 
 .main_nav {
